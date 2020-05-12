@@ -34,11 +34,10 @@ p {
 /* fine generali */
 
 /* MAIN */
-main .navbar, main .music {
+main .navbar, main .navbar-mobile, main .music {
   float: left;
   height: calc(100vh - 100px);
   background-color: #141922;
-  overflow-y: auto;
 }
 
 /* navbar */
@@ -47,6 +46,7 @@ main .navbar {
   flex-direction: column;
   background-color: black;
   width: 300px;
+  overflow-y: hidden;
 }
 
 main .navbar .logo img {
@@ -57,7 +57,11 @@ main .navbar .menu img {
   width: 30px;
 }
 
-main .navbar .account {
+main .navbar .playlist {
+  overflow-y: auto;
+}
+
+main .navbar > div:last-child, main .navbar-mobile > div:last-child{
   margin-top: auto;
 }
 
@@ -70,9 +74,14 @@ main .navbar .account hr {
   width: 90%;
   margin: 10px auto;
 }
+
+main .navbar-mobile {
+  display: none;
+}
 /* music */
 main .music {
   width: calc(100% - 300px);
+  overflow: auto;
 }
 /* fine main */
 
@@ -93,6 +102,25 @@ footer .mediaplayer .media-item {
 
 /* versione mobile */
 @media all and (max-width: 767px) {
+  main img {
+    width: 80px;
+
+  }
+  main .navbar {
+    display: none;
+  }
+
+  main .navbar-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    overflow: hidden;
+  }
+
+  main .music {
+    width: calc(100% - 100px);
+  }
 }
 /* fine versione mobile */
 
