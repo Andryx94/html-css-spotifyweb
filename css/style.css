@@ -1,3 +1,14 @@
+/* TO DO LIST
+-Ultimare mediaplayer (barre progresso)
+-Sistemare overflow-y navbar playlist
+-Sistemare centratura mediaplayer tra cover e autore/brano
+-Sistemare mediaplayer in versione mobile
+-Sistemare barra verde di "in evidenza"
+-Aggiungere effettistiche (i diventano bianchi, barre progresso verdi)
+-Sistemare compenetrazione verticale tra main e mediaplayer
+-Rivedere e rifinire tutto il codice
+FINE TO DO LIST */
+
 /* Generali */
 * {
   margin: 0;
@@ -33,6 +44,10 @@ a {
   text-decoration: none;
   color: rgba(255,255,255,0.4);
   font-size: 13px;
+}
+
+a:hover {
+  color: white;
 }
 
 .circle-grey {
@@ -171,6 +186,10 @@ main .music .upgrade a {
   text-transform: uppercase;
 }
 
+main .music .upgrade a:hover {
+  font-size: 14px;
+}
+
 main .music nav {
   padding-top: 75px;
   text-transform: uppercase;
@@ -178,11 +197,15 @@ main .music nav {
 
 main .music nav li {
   display: inline-block;
+  padding-right: 10px;
 }
 
 main .music nav a {
   font-size: 10px;
-  padding-right: 10px;
+}
+
+main .music nav #nav-border {
+  border-bottom: 2px solid darkgreen;
 }
 
 main .music .album {
