@@ -16,6 +16,10 @@ font-family: 'Montserrat', sans-serif;
 font-weight: 600;
 }
 
+img {
+  vertical-align: middle;
+}
+
 h2 {
   color: white;
   font-size: 12px;
@@ -53,6 +57,15 @@ a {
 
 .center {
   text-align: center;
+}
+
+.volume-rocker::after {
+  float: left;
+  content: "";
+  width: 80px;
+  margin-top: 10px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 10px;
 }
 /* fine generali */
 
@@ -133,12 +146,28 @@ main .navbar-mobile {
 main .music {
   width: calc(100% - 200px);
   overflow: auto;
+  padding-top: 68px;
 }
 
 main .music .upgrade {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  display: flex;
+  width: calc(100% - 200px);
+  background-color: rgba(0,0,0,0.3);
+  justify-content: flex-end;
+  overflow: hidden;
 }
 
-main .music .upgrade h2 {
+main .music .upgrade a {
+  padding: 10px 20px;
+  margin: 15px 0;
+  margin-right: 15px;
+  border: 1px solid white;
+  border-radius: 20px;
+  color: white;
+  text-transform: uppercase;
 }
 /* fine main */
 
@@ -147,6 +176,7 @@ footer i {
   color: white;
   font-size: 10px;
   padding-left: 10px;
+  vertical-align: middle;
 }
 
 footer p {
@@ -154,12 +184,13 @@ footer p {
 }
 /* media player */
 footer .mediaplayer {
+  z-index: 1;
   display: flex;
   width: 100%;
   height: 70px;
   background-color: #282828;
   justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 footer .mediaplayer div{
@@ -178,6 +209,15 @@ footer .mediaplayer .song i{
 
 footer .mediaplayer .song #autor-white{
   color: white;
+}
+
+footer .mediaplayer .song-progress i {
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+footer .mediaplayer .song-progress .fa-play-circle {
+  font-size: 20px;
 }
 /* fine footer */
 
