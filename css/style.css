@@ -20,10 +20,9 @@ img {
   vertical-align: middle;
 }
 
-h2 {
+h2, h3 {
   color: white;
   font-size: 12px;
-  text-transform: uppercase;
 }
 
 p {
@@ -59,6 +58,11 @@ a {
   text-align: center;
 }
 
+.circle-box {
+  border-radius: 50%;
+  max-height: 100px;
+}
+
 .volume-rocker::after {
   float: left;
   content: "";
@@ -85,6 +89,10 @@ main .navbar {
   overflow-y: hidden;
   padding: 10px 15px;
   padding-bottom: 5px;
+}
+
+main .navbar h2 {
+  text-transform: uppercase;
 }
 
 main .navbar .logo img {
@@ -146,7 +154,6 @@ main .navbar-mobile {
 main .music {
   width: calc(100% - 200px);
   overflow: auto;
-  padding-top: 68px;
 }
 
 main .music .upgrade {
@@ -168,6 +175,52 @@ main .music .upgrade a {
   border-radius: 20px;
   color: white;
   text-transform: uppercase;
+}
+
+main .music nav {
+  padding-top: 75px;
+  text-transform: uppercase;
+}
+
+main .music nav li {
+  display: inline-block;
+}
+
+main .music nav a {
+  font-size: 10px;
+  padding-right: 10px;
+}
+
+main .music .album {
+  padding-left: 10px;
+}
+
+main .music .album h2 {
+  font-size: 18px;
+  padding-top: 15px;
+}
+
+main .music .box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .music .box img  {
+  margin-top: 15px;
+}
+
+main .music .box h3, main .music .box p  {
+  font-size: 9px;
+  padding-top: 5px;
+}
+
+main .music .box .music-box {
+  width: 100px;
+  margin-left: 10px;
+}
+
+main .music .box .music-box img {
+  width: 100%;
 }
 /* fine main */
 
