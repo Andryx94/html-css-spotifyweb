@@ -1,9 +1,9 @@
 /* TO DO LIST
--Ultimare mediaplayer (barre progresso)
 -Sistemare overflow-y navbar playlist
 -Sistemare centratura mediaplayer tra cover e autore/brano
--Sistemare mediaplayer in versione mobile
+-Sistemare mediaplayer in versione tablet
 -Sistemare barra verde di "in evidenza"
+-Sistemare il responsive delle main cover
 -Aggiungere effettistiche (i diventano bianchi, barre progresso verdi)
 -Sistemare compenetrazione verticale tra main e mediaplayer
 -Rivedere e rifinire tutto il codice
@@ -55,14 +55,6 @@ a:hover {
   border-radius: 50%;
 }
 
-.bar {
-  float: left;
-  width: 70px;
-  border: 1px solid white;
-  border-radius: 10px;
-  color: rgba(255,255,255,0.4);
-}
-
 .center {
   text-align: center;
 }
@@ -72,7 +64,7 @@ a:hover {
   max-height: 100px;
 }
 
-.volume-rocker::after {
+.bar::after {
   float: left;
   content: "";
   width: 80px;
@@ -317,6 +309,25 @@ footer .mediaplayer .song-progress i {
   padding-left: 15px;
 }
 
+footer .mediaplayer .song-progress div:first-child {
+  padding: 0 50px;
+}
+
+footer .mediaplayer .song-progress .nofloat{
+  float: none;
+}
+
+footer .mediaplayer .song-progress .nofloat p{
+  display: inline-block;
+  font-size: 8px;
+  color: white;
+}
+
+footer .mediaplayer .song-progress .nofloat .bar::after{
+  width: 200px;
+  margin: 4px 10px;
+}
+
 footer .mediaplayer .song-progress .fa-play-circle {
   font-size: 20px;
 }
@@ -350,10 +361,34 @@ footer .mediaplayer .song-progress .fa-play-circle {
   main .music {
     width: calc(100% - 50px);
   }
+
+  footer i {
+    padding-left: 0px;
+  }
+
+  footer .mediaplayer div {
+    margin-right: 8px;
+  }
+
+  footer .mediaplayer .song p {
+    max-width: 50px;
+  }
+
+  footer .mediaplayer .song-progress .fa-random {
+    padding-left: 0px;
+  }
+
+  footer .mediaplayer .song-progress div:first-child {
+    padding: 0px;
+  }
+
+  footer .mediaplayer .song-progress .nofloat .bar::after {
+    width: 90px;
+  }
 }
 /* fine versione mobile */
 
 /* versione tablet */
-@media all and (min-width: 768px) and (max-width:991px){
+@media all and (min-width: 521px) and (max-width:991px){
 }
 /* fine versione tablet  */
