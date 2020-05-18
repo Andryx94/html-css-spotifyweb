@@ -1,11 +1,7 @@
 /* TO DO LIST
 -Sistemare overflow-y navbar playlist
 -Sistemare centratura mediaplayer tra cover e autore/brano
--Sistemare mediaplayer in versione tablet
--Sistemare barra verde di "in evidenza"
--Sistemare il responsive delle main cover
--Aggiungere effettistiche (i diventano bianchi, barre progresso verdi)
--Sistemare compenetrazione verticale tra main e mediaplayer
+-Aggiungere effettistiche (i diventano bianchi)
 -Rivedere e rifinire tutto il codice
 FINE TO DO LIST */
 
@@ -61,28 +57,54 @@ a:hover {
 
 .circle-box {
   border-radius: 50%;
-  max-height: 100px;
 }
 
-.bar::after {
-  float: left;
-  content: "";
+.bar {
+  position: relative;
   width: 80px;
-  margin-top: 10px;
-  border: 1.5px solid rgba(255,255,255,0.4);
+  height: 4px;
+  margin: 10px;
+  background-color: rgba(255,255,255,0.4);
   border-radius: 10px;
+}
+
+.bar:hover .bar-green {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.bar-green {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: green;
+  border-radius: 10px;
+}
+
+.bar-green::after {
+  position: absolute;
+  content: "";
+  top: -3px;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
 }
 /* fine generali */
 
 /* MAIN */
-main .navbar, main .navbar-mobile, main .music {
+.navbar, main .navbar-mobile, main .music {
   float: left;
   height: calc(100vh - 70px);
   background-color: #141922;
 }
 
 /* navbar */
-main .navbar {
+.navbar {
   display: flex;
   flex-direction: column;
   background-color: black;
@@ -92,29 +114,29 @@ main .navbar {
   padding-bottom: 5px;
 }
 
-main .navbar h2 {
+.navbar h2 {
   text-transform: uppercase;
 }
 
-main .navbar .logo img {
+.navbar .logo img {
   width: 120px;
   padding-bottom: 20px;
 }
 
-main .navbar .menu img {
+.navbar .menu img {
   width: 25px;
   margin-right: 5px;
 }
 
-main .navbar .menu li {
+.navbar .menu li {
   margin-bottom: 5px;
 }
 
-main .navbar .menu li:last-child {
+.navbar .menu li:last-child {
   margin-bottom: 20px;
 }
 
-main .navbar .playlist i {
+.navbar .playlist i {
   font-size: 20px;
   color: black;
   padding: 7px;
@@ -123,41 +145,41 @@ main .navbar .playlist i {
   background-color: grey;
 }
 
-main .navbar > div:last-child, main .navbar-mobile > div:last-child{
+.navbar > div:last-child, main .navbar-mobile > div:last-child{
   margin-top: auto;
 }
 
-main .navbar .account img {
+.navbar .account img {
   width: 20px;
   margin-right: 5px;
 }
 
-main .navbar .account li:first-child {
+.navbar .account li:first-child {
   border-bottom: 1px solid rgba(255,255,255,0.4);
   padding-bottom: 7px;
   margin-bottom: 7px;
 }
 
-main .navbar .account li:last-child {
+.navbar .account li:last-child {
   padding-bottom: 0px;
 }
 
-main .navbar .account li:last-child a{
+.navbar .account li:last-child a{
   color: white;
 }
 
 /* navbar mobile */
-main .navbar-mobile {
+.navbar-mobile {
   display: none;
 }
 
 /* music */
-main .music {
+.music {
   width: calc(100% - 200px);
   overflow: auto;
 }
 
-main .music .upgrade {
+.music .upgrade {
   position: fixed;
   top: 0%;
   right: 0%;
@@ -168,7 +190,7 @@ main .music .upgrade {
   overflow: hidden;
 }
 
-main .music .upgrade a {
+.music .upgrade a {
   padding: 10px 20px;
   margin: 15px 0;
   margin-right: 15px;
@@ -178,70 +200,68 @@ main .music .upgrade a {
   text-transform: uppercase;
 }
 
-main .music .upgrade a:hover {
+.music .upgrade a:hover {
   font-size: 14px;
 }
 
-main .music nav {
+.music nav {
   padding-top: 75px;
   text-transform: uppercase;
 }
 
-main .music nav li {
+.music nav li {
   display: inline-block;
   padding-right: 10px;
 }
 
-main .music nav a {
+.music nav a {
   font-size: 10px;
 }
 
-main .music nav #nav-border {
+.music nav #nav-border {
   border-bottom: 2px solid darkgreen;
 }
 
-main .music .album {
+.music .album {
   padding-left: 10px;
 }
 
-main .music .album h2 {
+.music .album h2 {
   font-size: 18px;
   padding-top: 15px;
 }
 
-main .music .box {
+.music .box {
   display: flex;
   flex-wrap: wrap;
 }
 
-main .music .box h3, main .music .box p  {
+.music .box h3, main .music .box p  {
   font-size: 9px;
   padding-top: 5px;
 }
 
-main .music .box .music-box {
-  width: 100px;
+.music .box .music-box {
+  width: 150px;
+  height: 200px;
   margin-left: 10px;
 }
 
-main .music .box .music-box img {
+.music .box .music-box img {
   width: 100%;
 }
 
-main .music .box .music-box .music-cover {
+.music .box .music-box .music-cover {
   position: relative;
-  width: 100px;
-  height: 100px;
   margin-top: 15px;
 }
 
-main .music .box .music-box .music-coverimg {
+.music .box .music-box .music-coverimg {
   z-index: 0;
   width: 100%;
-  height: 100%;
 }
 
-main .music .box .music-box .music-coverplay {
+.music .box .music-box .music-coverplay {
   position: absolute;
   z-index: 1;
   color: white;
@@ -252,12 +272,12 @@ main .music .box .music-box .music-coverplay {
   opacity: 0;
 }
 
-main .music .box .music-box .music-cover:hover .music-coverimg {
+.music .box .music-box .music-cover:hover .music-coverimg {
   filter: brightness(0.5);
   transition: filter 0.1s;
 }
 
-main .music .box .music-box .music-cover:hover .music-coverplay {
+.music .box .music-box .music-cover:hover .music-coverplay {
   opacity: 1;
   cursor: pointer;
 }
@@ -276,7 +296,7 @@ footer p {
   font-size: 8px;
 }
 /* media player */
-footer .mediaplayer {
+.mediaplayer {
   z-index: 1;
   display: flex;
   width: 100%;
@@ -286,60 +306,71 @@ footer .mediaplayer {
   padding: 0 5px;
 }
 
-footer .mediaplayer div{
+.mediaplayer div{
   float: left;
   margin-right: 10px;
   align-self: center;
 }
 
-footer .mediaplayer .song img{
+.mediaplayer .song {
+  flex-basis: 200px;
+}
+
+.mediaplayer .song img{
   width: 30px;
 }
 
-footer .mediaplayer .song i{
+.mediaplayer .song i{
   color: rgba(255,255,255,0.4);
 }
 
-footer .mediaplayer .song #autor-white{
+.mediaplayer .song #autor-white{
   color: white;
 }
 
-footer .mediaplayer .song-progress i {
+.mediaplayer .song-progress {
+  flex-basis: 300px;
+}
+
+.mediaplayer .song-progress .nofloat {
+  float: none;
+}
+
+.mediaplayer .song-progress i {
   font-size: 14px;
   padding-left: 15px;
 }
 
-footer .mediaplayer .song-progress div:first-child {
+.mediaplayer .song-progress > div:first-child {
   padding: 0 50px;
 }
 
-footer .mediaplayer .song-progress .nofloat{
-  float: none;
-}
-
-footer .mediaplayer .song-progress .nofloat p{
+.mediaplayer .song-progress p{
   display: inline-block;
   font-size: 8px;
   color: white;
 }
 
-footer .mediaplayer .song-progress .nofloat .bar::after{
+.mediaplayer .song-progress .bar{
   width: 200px;
-  margin: 4px 10px;
 }
 
-footer .mediaplayer .song-progress .fa-play-circle {
+.mediaplayer .song-progress .fa-play-circle {
   font-size: 20px;
+}
+
+.mediaplayer .song-option {
+  flex-basis: 190px;
 }
 /* fine footer */
 
 /* versione mobile */
 @media all and (max-width: 520px) {
-  main .navbar {
+  .navbar {
     display: none;
   }
 
-  main .navbar-mobile {
+  .navbar-mobile {
     display: flex;
     flex-direction: column;
     width: 50px;
@@ -348,17 +379,17 @@ footer .mediaplayer .song-progress .fa-play-circle {
     background-color: black;
   }
 
-  main .navbar-mobile img {
+  .navbar-mobile img {
     width: 30px;
     margin-top: 5px;
   }
 
-  main .navbar-mobile div:last-child img {
+  .navbar-mobile div:last-child img {
     width: 20px;
     margin: 2px 5px;
   }
 
-  main .music {
+  .music {
     width: calc(100% - 50px);
   }
 
@@ -366,23 +397,23 @@ footer .mediaplayer .song-progress .fa-play-circle {
     padding-left: 0px;
   }
 
-  footer .mediaplayer div {
+  .mediaplayer div {
     margin-right: 8px;
   }
 
-  footer .mediaplayer .song p {
+  .mediaplayer .song p {
     max-width: 50px;
   }
 
-  footer .mediaplayer .song-progress .fa-random {
+  .mediaplayer .song-progress .fa-random {
     padding-left: 0px;
   }
 
-  footer .mediaplayer .song-progress div:first-child {
+  .mediaplayer .song-progress div:first-child {
     padding: 0px;
   }
 
-  footer .mediaplayer .song-progress .nofloat .bar::after {
+  .mediaplayer .song-progress .bar {
     width: 90px;
   }
 }
