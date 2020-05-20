@@ -1,2 +1,4 @@
-document.getElementById("playlist-js").innerHTML= "Nome Playlist (JS)";
-alert("Ho modificato con il Javascript l'ultima playlist");
+var nomePlaylist = prompt("Inserisci nome playlist");
+alert("Ho aggiunto la playlist " + nomePlaylist);
+
+document.getElementById("playlist-js").innerHTML= nomePlaylist;
